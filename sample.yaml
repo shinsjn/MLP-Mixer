@@ -1,0 +1,31 @@
+program: train.py
+method: grid
+metric:
+  goal: minimize
+  name: test_loss
+parameters:
+  in_channels:
+    values: [3]
+  hidden_size:
+    values: [512,1024]
+  class_num:
+    values: [10]
+  patch_size:
+    values: [8,16,32]
+  input_size:
+    values: [224]
+  layer_depth:
+    values: [4,8,12,16]
+  token_dim:
+    values: [256,512,1024]
+  channel_dim:
+    values: [256,512,1024]
+  learning_rate:
+    values: [3e-2,1e-3,1e-4,1e-5,1e-6]
+  batch_size:
+    values: [128]
+  epochs:
+    values: [300]
+early_terminate:
+  type: hyperband
+  min_iter: 5
